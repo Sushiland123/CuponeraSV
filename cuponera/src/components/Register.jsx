@@ -18,7 +18,7 @@ export default function Register() {
 
     return () => unsubscribe();
   }, [navigate]);
-
+  //Por seguridad debe aceptar los términos y servicios 
   const handleRegister = async (e) => {
     e.preventDefault();
     if (!termsAccepted) {
@@ -31,7 +31,7 @@ export default function Register() {
       const user = userCredential.user;
       await sendEmailVerification(user);
       alert("Registro exitoso 🎉. Por favor verifica tu correo electrónico.");
-
+//Al registrarse correctamente el usuario DEBE verificar su correo 
       localStorage.setItem("usuarioLogueado", JSON.stringify({ uid: user.uid, email: user.email }));
       navigate("/dashboard");
     } catch (err) {
