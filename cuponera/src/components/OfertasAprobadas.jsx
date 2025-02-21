@@ -82,7 +82,7 @@ const OfertasAprobadas = () => {
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold text-center text-red-600">Cupones Vigentes</h1>
-      <nav className="flex flex-wrap justify-center space-x-2 sm:space-x-4 mt-4">
+      <nav className="flex flex-wrap justify-center space-x-2 sm:space-x-4 mt-4 sm:space-y-0 space-y-2">
         {categorias.map((categoria) => (
           <button
             key={categoria}

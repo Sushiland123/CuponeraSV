@@ -58,7 +58,7 @@ export default function Register() {
 
   return (
     <div className="flex items-center justify-center min-h-screen bg-[#F1E4D1]">
-      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md">
+      <div className="w-full max-w-md p-6 bg-white rounded-lg shadow-md mt-6 sm:mt-0">
         <h2 className="text-2xl font-bold text-center text-[#162660]">Registrarse</h2>
 
         {error && <p className="text-red-500 text-sm text-center mt-2">{error}</p>}
