@@ -15,7 +15,7 @@ const DetallesOferta = () => {
   const [user, setUser] = useState(null);
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => { // este hook permite buscar y verificar las diferentes ofertas en el firestore database.
     const obtenerOferta = async () => {
       try {
         const docRef = doc(db, "Oferta", ofertaId);
@@ -35,7 +35,7 @@ const DetallesOferta = () => {
     obtenerOferta();
   }, [ofertaId, navigate]);
 
-  useEffect(() => {
+  useEffect(() => { //Este hook permite verificar que el usuario está realmente verificado, al verificar su correo electronico antes de hacer una compra.
     const auth = getAuth();
     const unsubscribe = onAuthStateChanged(auth, (user) => {
       if (user) {
@@ -50,7 +50,7 @@ const DetallesOferta = () => {
     return () => unsubscribe();
   }, []);
 
-  const luhnCheck = (val) => {
+  const luhnCheck = (val) => { //Se utiliza el algoritmo de Luhn para validar números de identificación como el de la tarjeta de crédito en este caso.
     let sum = 0;
     for (let i = 0; i < val.length; i++) {
       let intVal = parseInt(val.substr(i, 1));
@@ -65,7 +65,7 @@ const DetallesOferta = () => {
     return (sum % 10) === 0;
   };
 
-  const handlePayment = async () => {
+  const handlePayment = async () => { // variable asignada para manejar los diferentes errores en temas de campos obligatorios, números de tarjeta invalidos, y la verificación del correo para la compra.
     setError("");
     if (!cardNumber || !expiryDate || !cardholderName || !cvc) {
       setError("Todos los campos son obligatorios");
@@ -107,7 +107,7 @@ const DetallesOferta = () => {
   if (!oferta) {
     return <div>Cargando...</div>;
   }
-
+  // Sección de pago
   return (
     <div className="container mx-auto p-4">
       <h1 className="text-3xl font-bold text-center text-red-600">{oferta.titulo}</h1>
