@@ -42,7 +42,7 @@ export default function Register() {
       }
     }
   };
-
+  //Gracias a Firebase se puede manejar un inicio de sesión con Google
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
