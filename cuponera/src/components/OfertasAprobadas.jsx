@@ -33,7 +33,7 @@ const OfertasAprobadas = () => {
       day: "numeric",
     });
   };
-
+//verifica que la persona esté logueada antes de mostrar los detalles, si lo está los muestra, y sino lo redirige al login.
   const handleComprarCupon = (ofertaId) => {
     const usuarioLogueado = localStorage.getItem("usuarioLogueado");
 
@@ -43,9 +43,9 @@ const OfertasAprobadas = () => {
       navigate(`/detalles-oferta/${ofertaId}`);
     }
   };
-
+//En esta variable se guardan todos los rubros de los cupones existentes, si se agregan otros rubros, se debe agregar aquí.
   const categorias = ["Restaurantes", "Entretenimiento", "Educación", "Ferretería", "Decoración", "Servicios"];
-
+//las ofertas se clasificarán por rubro y por vigencia.
   const renderizarOfertasPorRubro = () => {
     const ofertasFiltradas = ofertas.filter((oferta) => oferta.rubro === selectedCategory);
 

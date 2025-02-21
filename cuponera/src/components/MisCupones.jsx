@@ -7,7 +7,7 @@ const MisCupones = () => {
   const [cupones, setCupones] = useState([]);
   const [usuario, setUsuario] = useState(null);
   const navigate = useNavigate();
-
+  //Hook para verificar si la persona está logueada, si lo está buscar y mostrar los cupones que están comprados con su cuenta.
   useEffect(() => {
     const usuarioLogueado = JSON.parse(localStorage.getItem("usuarioLogueado"));
     console.log("Usuario logueado:", usuarioLogueado); // 🔍 Verificar usuario
