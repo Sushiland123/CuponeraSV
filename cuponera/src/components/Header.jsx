@@ -20,7 +20,7 @@ const Header = ({ user }) => {
   const closeMenu = () => {
     setIsMenuOpen(false);
   };
-
+  //Header condicionado para cambiar en diferentes circunstancias tanto por responsividad como por procedimiento realizado.
   return (
     <header className="bg-[#FAB26A] text-[#D54560] py-4 font-bold">
       <div className="container mx-auto flex justify-between items-center px-6">
