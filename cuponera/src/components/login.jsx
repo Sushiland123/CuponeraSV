@@ -9,7 +9,7 @@ export default function Login() {
   const [error, setError] = useState("");
   const navigate = useNavigate();
 
-  useEffect(() => {
+  useEffect(() => { // hook para verificar si el usuario está auntenticado que pueda pasar al dashboard
     const unsubscribe = auth.onAuthStateChanged((user) => {
       if (user) {
         navigate("/dashboard");
@@ -37,7 +37,7 @@ export default function Login() {
       }
     }
   };
-
+  //Gracias a firebase se puede manejar un login con cuenta de Google.
   const handleGoogleLogin = async () => {
     try {
       const result = await signInWithPopup(auth, googleProvider);
@@ -50,7 +50,7 @@ export default function Login() {
       setError("Error con Google: " + err.message);
     }
   };
-
+  //Dentro del login se puede manejar el reestablecimiento de contraseña por si una persona no la recuerda, esto es con ayuda de firebase.
   const handlePasswordReset = async () => {
     if (!email) {
       setError("Por favor, ingresa tu correo electrónico para restablecer la contraseña.");
